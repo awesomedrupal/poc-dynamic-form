@@ -53,16 +53,20 @@ const App = () => {
 
   return (
     <div style={{ padding: '2rem' }}>
-      <DynamicFormRender
-        config={formConfig}
-        market={market}
-        onNext={handleNext}
-        initialValues={initialValuesForCurrentStep}
-        isReviewPage={isLastStep}
-        onFinalSubmit={handleSubmitAll}
-      />
+      {currentStepIndex < journey.steps.length ? (
+        <DynamicFormRender
+          config={formConfig}
+          market={market}
+          onNext={handleNext}
+          initialValues={initialValuesForCurrentStep}
+          isReviewPage={isLastStep}
+          onFinalSubmit={handleSubmitAll}
+        />
+      ) : (
+        <div>Thank you for submitting your application!</div> // or whatever you want
+      )}
       <div style={{ marginTop: '1rem' }}>
-        {currentStepIndex > 0 && (
+        {currentStepIndex > 0 && currentStepIndex < journey.steps.length && (
           <button onClick={handleBack} style={{ marginRight: '1rem' }}>
             Back
           </button>
