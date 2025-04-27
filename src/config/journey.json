@@ -1,0 +1,9 @@
+{
+    "steps": [
+      { "id": "companyInformationForm", "name": "Company Information" },
+      { "id": "applicantInformationForm", "name": "Applicant Information" },
+      { "id": "reviewForm", "name": "Review" },
+      { "id": "confirmationForm", "name": "Confirmation" }
+    ]
+  }
+  
