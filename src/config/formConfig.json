@@ -1,48 +1,20 @@
 {
-    "title": "Applicant Information",
-    "fields": [
-      {
-        "name": "firstName",
-        "label": "First Name",
-        "type": "text",
-        "required": true,
-        "position": "row1Column1",
-        "validation": {
-          "regex": "^[a-zA-Z]{2,}$",
-          "errorMessage": "First name must have at least 2 letters."
-        }
-      },
-      {
-        "name": "lastName",
-        "label": "Last Name",
-        "type": "text",
-        "required": true,
-        "position": "row1Column2",
-        "validation": {
-          "regex": "^[a-zA-Z]{2,}$",
-          "errorMessage": "Last name must have at least 2 letters."
-        }
-      },
-      {
-        "name": "phoneNumber",
-        "label": "Phone Number",
-        "type": "text",
-        "required": true,
-        "position": "row2Column1",
-        "props": {
-          "placeholder": "Enter your phone number"
-        },
-        "validation": {
-          "regex": "^[0-9]{10}$",
-          "errorMessage": "Phone number must be exactly 10 digits."
-        },
-        "marketOverrides": {
-          "en-IN": {
-            "regex": "^[6-9][0-9]{9}$",
-            "errorMessage": "Indian phone number must start with 6-9 and be 10 digits."
-          }
-        }
-      }
-    ]
+  "en-IN": {
+    "journey": "config/en-IN/journey.json",
+    "companyInformationForm": "config/en-IN/companyInformationForm.json",
+    "applicantInformationForm": "config/en-IN/applicantInformationForm.json",
+    "reviewForm": "config/en-IN/reviewForm.json"
+  },
+  "en-US": {
+    "journey": "config/en-US/journey.json",
+    "companyInformationForm": "config/en-US/companyInformationForm.json",
+    "applicantInformationForm": "config/en-US/applicantInformationForm.json",
+    "reviewForm": "config/en-US/reviewForm.json"
+  },
+  "en-UK": {
+    "journey": "config/en-UK/journey.json",
+    "companyInformationForm": "config/en-UK/companyInformationForm.json",
+    "applicantInformationForm": "config/en-UK/applicantInformationForm.json",
+    "reviewForm": "config/en-UK/reviewForm.json"
   }
-  
+}

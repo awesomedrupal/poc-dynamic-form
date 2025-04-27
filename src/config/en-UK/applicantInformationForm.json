@@ -1,0 +1,48 @@
+{
+    "title": "Applicant Information",
+    "fields": [
+      {
+        "name": "firstName",
+        "label": "First Name",
+        "type": "text",
+        "required": true,
+        "position": "row1Column1",
+        "validation": {
+          "regex": "^[a-zA-Z]{2,}$",
+          "errorMessage": "First name must be at least 2 letters."
+        }
+      },
+      {
+        "name": "lastName",
+        "label": "Last Name",
+        "type": "text",
+        "required": true,
+        "position": "row1Column2",
+        "validation": {
+          "regex": "^[a-zA-Z]{2,}$",
+          "errorMessage": "Last name must be at least 2 letters."
+        }
+      },
+      {
+        "name": "phoneNumber",
+        "label": "Phone Number",
+        "type": "text",
+        "required": true,
+        "position": "row2Column1",
+        "props": {
+          "placeholder": "Enter your phone number"
+        },
+        "validation": {
+          "regex": "^[0-9]{10}$",
+          "errorMessage": "Phone number must be exactly 10 digits."
+        },
+        "marketOverrides": {
+          "en-IN": {
+            "regex": "^[6-9][0-9]{9}$",
+            "errorMessage": "Indian phone must start with 6-9 and be 10 digits."
+          }
+        }
+      }
+    ]
+  }
+  

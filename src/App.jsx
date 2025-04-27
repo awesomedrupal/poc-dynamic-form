@@ -1,24 +1,21 @@
 import React, {useState} from 'react';
 import { DynamicFormRender } from './components/DynamicFormRender';
-import formConfig from './config/formConfig.json';
-import journey from './config/journey.json';
-import companyInformationForm from './config/companyInformationForm.json';
-import applicantInformationForm from './config/applicantInformationForm.json';
-import reviewForm from './config/reviewForm.json';
 import { useFormData } from './context/FormDataContext';
+import { journeyData, formConfigs } from './loadMarketConfigs';
 
-const formConfigs = {
-  companyInformationForm,
-  applicantInformationForm,
-  reviewForm
-};
+
 
 const App = () => {
   const { formData, updateFormData } = useFormData();
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
 
-  const currentStep = journey.steps[currentStepIndex];
-  const formConfig = formConfigs[currentStep.id];
+  // Assume market is chosen here (can be from URL later)
+  const market = 'en-IN'; // or 'en-US'
+
+  const currentStep = journeyData[market].steps[currentStepIndex];
+  const formConfig = formConfigs[market][currentStep.id];
+
+  const journey = journeyData[market];
 
   const handleNext = (values) => {
     updateFormData(currentStep.id, values); // Save form values
@@ -42,9 +39,6 @@ const App = () => {
     alert(JSON.stringify(formData, null, 2));
   };
 
-
-  // Change market here to 'en-IN' or 'en-US' (POC Purpose hardcoded)
-  const market = 'en-IN';  // test by changing this
   const isLastStep = currentStepIndex === journey.steps.length - 1;
 
   const initialValuesForCurrentStep = formData[currentStep.id] || {};

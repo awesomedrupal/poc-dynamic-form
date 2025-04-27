@@ -1,0 +1,15 @@
+{
+    "title": "Review Your Information",
+    "fields": [
+      {
+        "name": "reviewNote",
+        "label": "Please review and confirm your entered information.",
+        "type": "text",
+        "position": "row1Column1",
+        "props": {
+          "readonly": true
+        }
+      }
+    ]
+  }
+  

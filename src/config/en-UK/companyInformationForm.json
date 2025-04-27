@@ -1,0 +1,36 @@
+{
+    "title": "Company Information",
+    "fields": [
+      {
+        "name": "companyName",
+        "label": "Company Name",
+        "type": "text",
+        "required": true,
+        "position": "row1Column1",
+        "validation": {
+          "regex": "^[a-zA-Z0-9\\s]{2,}$",
+          "errorMessage": "Company name must be at least 2 characters."
+        }
+      },
+      {
+        "name": "companyRegistrationNumber",
+        "label": "Registration Number",
+        "type": "text",
+        "required": true,
+        "position": "row1Column2",
+        "validation": {
+          "regex": "^[a-zA-Z0-9\\s]{8,15}$",
+          "errorMessage": "Enter a valid registration number (8-15 alphanumeric)."
+        }
+      },
+      {
+        "name": "country",
+        "label": "Country",
+        "type": "select",
+        "required": true,
+        "position": "row2Column1",
+        "options": ["USA", "India", "France"]
+      }
+    ]
+  }
+  
