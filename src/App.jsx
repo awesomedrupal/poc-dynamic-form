@@ -21,10 +21,13 @@ const App = () => {
   const formConfig = formConfigs[currentStep.id];
 
   const handleNext = (values) => {
-    updateFormData(currentStep.id, values);
-    if (currentStepIndex < journey.steps.length - 1) {
-      setCurrentStepIndex(currentStepIndex + 1);
-    }
+    updateFormData(currentStep.id, values); // Save form values
+    setCurrentStepIndex((prev) => {
+      if (prev < journey.steps.length - 1) {
+        return prev + 1;
+      }
+      return prev; // Don't go beyond last step
+    });
   };
 
   const handleBack = () => {
@@ -33,7 +36,8 @@ const App = () => {
     }
   };
 
-  const handleSubmitAll = () => {
+  const handleSubmitAll = (values) => {
+    updateFormData(currentStep.id, values);
     console.log('Submitting Full Form Data:', formData);
     alert(JSON.stringify(formData, null, 2));
   };
@@ -61,11 +65,6 @@ const App = () => {
         {currentStepIndex > 0 && (
           <button onClick={handleBack} style={{ marginRight: '1rem' }}>
             Back
-          </button>
-        )}
-        {currentStepIndex < journey.steps.length - 1 && (
-          <button onClick={handleNext}>
-            Next
           </button>
         )}
       </div>
